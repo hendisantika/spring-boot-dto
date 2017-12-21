@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
