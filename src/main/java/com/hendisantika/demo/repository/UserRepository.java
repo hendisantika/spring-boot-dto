@@ -1,6 +1,9 @@
 package com.hendisantika.demo.repository;
 
+import com.hendisantika.demo.dto.UserDTO;
 import com.hendisantika.demo.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /***
@@ -12,4 +15,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * Telegram : @hendisantika34
  */
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
+    Page<UserDTO> findUsers(Pageable page);
 }
