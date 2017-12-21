@@ -35,10 +35,10 @@ public class DemoApplication {
             roleRepository.save(new Role("SEC-BP"));
             roleRepository.save(new Role("HOR"));
 
-            repo.save(new User("Hendi", "Santika", "Hendi.Santika@allianz.co.id", "BP", new Date(), new Date(), new Date(), 1, "Password failed", 1));
+            repo.save(new User("Hendi", "Santika", "Hendi.Santika@example.co.id", "BP", new Date(), new Date(), new Date(), 1, "Password failed", 1));
 
             for (int i = 1; i < 25; i++) {
-                repo.save(new User("Hendi" + i, "Santika" + i, "Hendi.Santika" + i + "@allianz.co.id", "BE", new Date(), new Date(), new Date(), 1, "Password failed", 1));
+                repo.save(new User("Hendi" + i, "Santika" + i, "Hendi.Santika" + i + "@example.co.id", "BE", new Date(), new Date(), new Date(), 1, "Password failed", 1));
 
             }
 
