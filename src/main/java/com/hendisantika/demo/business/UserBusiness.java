@@ -1,8 +1,8 @@
 package com.hendisantika.demo.business;
 
 import com.hendisantika.demo.dto.UserDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,5 +15,5 @@ import org.springframework.data.domain.Pageable;
  * To change this template use File | Settings | File Templates.
  */
 public interface UserBusiness {
-    Page<UserDTO> findUsers(Pageable page);
+    List<UserDTO> getUsersList(int page, int size, String sortDir, String sort);
 }
