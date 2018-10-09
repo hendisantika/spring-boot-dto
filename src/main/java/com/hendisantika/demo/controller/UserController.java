@@ -1,13 +1,16 @@
 package com.hendisantika.demo.controller;
 
-import com.hendisantika.demo.entity.User;
-import com.hendisantika.demo.repository.UserRepository;
+import com.hendisantika.demo.dto.UserDTO;
+import com.hendisantika.demo.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /***
  * Created by IntelliJ IDEA
@@ -22,10 +25,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @GetMapping
-    Page<User> getAllUsers(Pageable page) {
-        return userRepository.findAll(page);
+    public List<UserDTO> getUsers(Pageable page) {
+        List<UserDTO> users = userService.findUsers(page);
+        return users.stream()
+                .map(post -> convertToDto(post))
+                .collect(Collectors.toList());
     }
 }
